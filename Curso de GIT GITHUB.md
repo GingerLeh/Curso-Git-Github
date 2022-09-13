@@ -208,3 +208,54 @@ git stash drop <num_stash> #remove o stash
 git stash pop #aplica o ultimo stash e já remove
 git stash apply <num_stash> #vai para o stash especifico
 ```
+
+## Github
+
+- Subindo arquivos no github
+
+```bash
+git remote -v
+git remote set-url <origin> <url>
+git push origin master
+#pede o login github
+```
+
+- Fechar issues com commits
+
+```bash
+git commit -m "mensagem - fix #id_issue"
+```
+
+- Mandar branch para GitHub
+
+```bash
+git push origin <nome_branch>
+```
+
+- Pull request → solicitação de merge
+- Deletando branch
+
+```bash
+git push origin <branch> --delete
+#ou 
+git push origin :<branch> 
+```
+
+- Para não ficar digitando sempre a senha ao fazer solicitações para GitHub (https)
+
+```bash
+git config --global credential.helper cache
+#para voltar como antes 
+git config --global --unset credential.helper
+#colocar tempo para senha expirar
+git config --global credential.helper 'cache --timeout=3600'
+```
+
+### Trabalhando em equipes
+
+```bash
+git fetch upstream #baixa as alterações em branch
+git merge upstream/master #após faz o merge
+git checkout upstream/<branch> -b <nova_branch> #vai para a branch puxada e cria uma nova branch baseada nesse branch
+  
+```
